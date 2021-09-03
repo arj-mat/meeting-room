@@ -49,55 +49,28 @@ public class MSNConnection {
     }
 
     public MSNConnection setup() {
-        MSNConnection that = this;
-
-        TimerTask task = new TimerTask() {
-            @SneakyThrows
-            public void run() {
-                System.out.println( that.session );
-                System.out.println( that.memberIdentification );
-
-                if ( that.session != null ) {
-                    if ( that.memberIdentification == null ) {
-                        MSNConnectionService.sendUserIdentificationRequest( that.connectionId );
-
-                        if ( that.connectedAt.isBefore( LocalDateTime.now().minusSeconds( 30 ) ) ) {
-                            // Desconectar caso o usuário ainda não tenha se identificado em 30 segundos
-                            System.out.println( "not yet identified" );
-
-                            that.session.close();
-                        }
-
-                    } else if ( that.lastPing.isBefore( LocalDateTime.now().minusSeconds( 60 ) ) ) {
-                        // Desconectar se o último ping foi recebido há mais de 60 segundos
-
-                        System.out.println( "ping timed out" );
-                        that.session.close();
-                    }
-                }
-            }
-        };
+        MSNConnection self = this;
 
         this.connectionTimer = new Timer();
         this.connectionTimer.scheduleAtFixedRate( new TimerTask() {
             @SneakyThrows
             public void run() {
-                if ( that.session != null ) {
-                    if ( that.memberIdentification == null ) {
-                        MSNConnectionService.sendUserIdentificationRequest( that.connectionId );
+                if ( self.session != null ) {
+                    if ( self.memberIdentification == null ) {
+                        MSNConnectionService.sendUserIdentificationRequest( self.connectionId );
 
-                        if ( that.connectedAt.isBefore( LocalDateTime.now().minusSeconds( 30 ) ) ) {
+                        if ( self.connectedAt.isBefore( LocalDateTime.now().minusSeconds( 30 ) ) ) {
                             // Desconectar caso o usuário ainda não tenha se identificado em 30 segundos
-                            System.out.println( "not yet identified" );
+                            System.out.println( "Not yet identified " + self.connectionId );
 
-                            that.session.close();
+                            self.session.close();
                         }
 
-                    } else if ( that.lastPing.isBefore( LocalDateTime.now().minusSeconds( 60 ) ) ) {
+                    } else if ( self.lastPing.isBefore( LocalDateTime.now().minusSeconds( 60 ) ) ) {
                         // Desconectar se o último ping foi recebido há mais de 60 segundos
-                        System.out.println( "Disconnected due to ping " + that.memberIdentification.displayName );
+                        System.out.println( "Disconnected due to ping " + self.memberIdentification.displayName );
 
-                        that.session.close();
+                        self.session.close();
                     }
                 }
             }
@@ -139,6 +112,7 @@ public class MSNConnection {
 
         if ( this.memberIdentification != null && MSNConnectionService.connectionsByRoomId.containsKey( this.memberIdentification.roomId ) ) {
             MSNConnectionService.connectionsByRoomId.get( this.memberIdentification.roomId ).remove( this );
+
             RoomMSNService.broadcastMemberLeft( this.memberIdentification );
         }
 
