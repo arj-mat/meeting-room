@@ -7,17 +7,17 @@ Ainda que inspirado no projeto final proposto originalmente no Bootcamp, este pr
 ## Índice
 - [Projeto de Meeting Room](#projeto-de-meeting-room)
   * [Recursos](#recursos)
-  * [Demonstração](#demonstra--o)
-  * [Repositório do Frontend em Angular](#reposit-rio-do-frontend-em-angular)
+  * [Demonstração](#demonstração)
+  * [Repositório do Frontend em Angular](#repositório-do-frontend-em-angular)
   * [Backend](#backend)
-      - [Dependências utilizadas](#depend-ncias-utilizadas)
+      - [Dependências utilizadas](#dependências-utilizadas)
       - [Destaques](#destaques)
         * [Autenticação com OAuth do Discord](#autentica--o-com-oauth-do-discord)
-        * [Sincronização de conteúdo não armazenado no servidor](#sincroniza--o-de-conte-do-n-o-armazenado-no-servidor)
-  * [Instruções para clonagem do backend](#instru--es-para-clonagem-do-backend)
-    + [Variável da porta do servidor HTTP](#vari-vel-da-porta-do-servidor-http)
-    + [Variáveis de ambiente do banco de dados](#vari-veis-de-ambiente-do-banco-de-dados)
-    + [Parâmetros da API do Discord](#par-metros-da-api-do-discord)
+        * [Sincronização de conteúdo não armazenado no servidor](#sincronizaçãoo-de-conte-do-não-armazenado-no-servidor)
+  * [Instruções para clonagem do backend](#instruções-para-clonagem-do-backend)
+    + [Variável da porta do servidor HTTP](#variável-da-porta-do-servidor-http)
+    + [Variáveis de ambiente do banco de dados](#variáveis-de-ambiente-do-banco-de-dados)
+    + [Parâmetros da API do Discord](#parâmetros-da-api-do-discord)
 
 
 ## Recursos
