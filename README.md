@@ -4,6 +4,12 @@ Projeto final produzido após o Bootcamp Fullstack Developer (Java + Angular) do
 
 Ainda que inspirado no projeto final proposto originalmente no Bootcamp, este projeto é completamente diferente, porém abrange igualmente todas as matérias ensinadas ao longo do curso.
 
+## Índice
+
+[TOC]
+
+
+
 ## Recursos
 
 Permite a criação de salas virtuais para bate-papo em tempo real por meio de mensagens de texto e gravações de voz direto do navegador (sem compatibilidade mobile).
@@ -60,3 +66,41 @@ Porém, caso um membro tenha entrado na sala após um áudio ter sido enviado, e
 Esse modelo de sincronização é inspirado nas versões antigas do Skype, que requeriam a presença de membros online para carregar mensagens enviadas enquanto o usuário solicitante estivesse off-line.
 
 Atualmente, os áudios ficam armazenados somente como variáveis na memória volátil.
+
+## Instruções para clonagem do backend
+
+Versão do Java: 11.
+
+O frontend compilado está incluído na pasta [static](https://github.com/arj-mat/meeting-room/tree/master/src/main/resources/static).
+
+Algumas variáveis de ambiente são necessárias para o funcionamento do servidor.
+
+### Variável da porta do servidor HTTP
+
+Defina a variável de ambiente `PORT` com o número da porta desejada.
+
+No ambiente do Heroku, esta variável é providenciada automaticamente.
+
+### Variáveis de ambiente do banco de dados
+
+O arquivo [application.yml](https://github.com/arj-mat/meeting-room/blob/master/src/main/resources/application.yml) faz referência às variáveis de ambiente necessárias para conexão ao banco de dados.
+
+`${DATABASE_URL}` é a variável providenciada pelo Heroku contendo todas as informações necessárias para a conexão.
+
+Em caso de uma conexão local, defina a variável `DATABASE_URL` como `jdbc:postgresql://localhost:5432/NOME_DO_BANCO_DE_DADOS`.
+
+Defina também as variáveis `DB_USERNAME` e `DB_PASSWORD` com respectivamente o nome de usuário e senha do seu banco local. 
+
+Remova o comentário dessas duas variáveis no arquivo [application.yml](https://github.com/arj-mat/meeting-room/blob/master/src/main/resources/application.yml).
+
+### Parâmetros da API do Discord
+
+O arquivo [AppConfig.java](https://github.com/arj-mat/meeting-room/blob/master/src/main/java/com/santander/meeting/meetingroom/AppConfig.java) define as credenciais necessárias para utilizar a API do Discord.
+
+Caso queira utilizar o recurso "Entrar com Discord" localmente, obtenha suas credenciais de aplicativo em https://discord.com/developers/docs/intro.
+
+Substitua a string `DISCORD_OAUTH_CLIENT_ID` pelo Client ID do seu aplicativo.
+
+Defina a variável de ambiente `DISCORD_OAUTH_URI` com a URI de redirecionamento definida no seu painel do aplicativo do Discord.
+
+Defina a variável de ambiente `DISCORD_API_SECRET` com o token secreto do seu aplicativo.
