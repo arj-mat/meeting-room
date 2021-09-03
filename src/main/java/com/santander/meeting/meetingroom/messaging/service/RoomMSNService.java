@@ -54,6 +54,15 @@ public class RoomMSNService {
 
     public HashMap<String, RoomMediaSyncAvailabilityRequest> mediaSyncAvailabilityRequests = new HashMap<>();
 
+    public static void sendToMembers(String roomId, String destination, Object payload) {
+        if ( MSNConnectionService.connectionsByRoomId.containsKey( roomId ) ) {
+            MSNConnectionService
+                    .connectionsByRoomId
+                    .get( roomId )
+                    .forEach( msnConnection -> msnConnection.sendIfIdentified( destination, payload ) );
+        }
+    }
+
     public RoomMediaSyncAvailabilityRequest createRoomMediaSyncAvailabilityRequest(String roomId, String mediaId,
                                                                                    String requestingMemberId) {
         var request = RoomMediaSyncAvailabilityRequest
@@ -205,10 +214,7 @@ public class RoomMSNService {
                 .content( content )
                 .build();
 
-        MSNConnectionService.
-                connectionsByRoomId
-                .get( roomId )
-                .forEach( msnConnection -> msnConnection.sendIfIdentified( "/chat-output", messageOutput ) );
+        RoomMSNService.sendToMembers( roomId, "/chat-output", messageOutput );
     }
 
     public static void broadcastMemberJoined(MSNMemberIdentification member) {
@@ -220,21 +226,7 @@ public class RoomMSNService {
                 .isInRoom( true )
                 .build();
 
-        MSNConnectionService
-                .connectionsByRoomId
-                .get( member.roomId )
-                .forEach( msnConnection -> msnConnection.sendIfIdentifiedAsDifferentMember( member.id,
-                                                                                            "/member-update",
-                                                                                            payload ) );
-    }
-
-    public static void sendToMembers(String roomId, String destination, Object payload) {
-        if ( MSNConnectionService.connectionsByRoomId.containsKey( roomId ) ) {
-            MSNConnectionService
-                    .connectionsByRoomId
-                    .get( roomId )
-                    .forEach( msnConnection -> msnConnection.sendIfIdentified( destination, payload ) );
-        }
+        RoomMSNService.sendToMembers( member.roomId, "/member-update", payload );
     }
 
     public static void broadcastMemberLeft(MSNMemberIdentification member) {
@@ -246,12 +238,7 @@ public class RoomMSNService {
                 .isInRoom( false )
                 .build();
 
-        MSNConnectionService
-                .connectionsByRoomId
-                .get( member.roomId )
-                .forEach( msnConnection -> msnConnection.sendIfIdentifiedAsDifferentMember( member.id,
-                                                                                            "/member-update",
-                                                                                            payload ) );
+        RoomMSNService.sendToMembers( member.roomId, "/member-update", payload );
     }
 
     public void newAudioRecording(MSNMemberIdentification member, String data) {
