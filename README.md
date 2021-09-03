@@ -10,15 +10,15 @@ Permite a criação de salas virtuais para bate-papo em tempo real por meio de m
 
 Inspirado nas versões antigas do Skype, no WhatsApp Web e no [projeto Audicord](https://github.com/arj-mat/Audicord).
 
-## Repositório do Frontend em Angular
-
-[https://github.com/arj-mat/meeting-room-frontend](https://github.com/arj-mat/meeting-room-frontend)
-
 ## Demonstração
 
 O projeto completo (backend e frontend) se encontra hospedado no Heroku e pode ser acessado para fins de testes demonstrativos através do seguinte link: [https://proj-meeting-room.herokuapp.com/](https://proj-meeting-room.herokuapp.com/).
 
 Note que o servidor pode estar em estado de suspensão devido a inatividade, o que requer cerca de 30 segundos para que um primeiro acesso seja respondido.
+
+## Repositório do Frontend em Angular
+
+[https://github.com/arj-mat/meeting-room-frontend](https://github.com/arj-mat/meeting-room-frontend)
 
 ## Backend
 
