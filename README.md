@@ -85,7 +85,7 @@ No ambiente do Heroku, esta variável é providenciada automaticamente.
 
 ### Variáveis de ambiente do banco de dados
 
-O arquivo [application.yml](https://github.com/arj-mat/meeting-room/blob/master/src/main/resources/application.yml) faz referência às variáveis de ambiente necessárias para conexão ao banco de dados.
+O arquivo [application.yml](https://github.com/arj-mat/meeting-room/blob/master/src/main/resources/application.yml) faz referência às variáveis de ambiente necessárias para conexão ao banco de dados PostgreSQL.
 
 `${DATABASE_URL}` é a variável providenciada pelo Heroku contendo todas as informações necessárias para a conexão.
 
