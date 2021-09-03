@@ -18,6 +18,8 @@ Inspirado nas versões antigas do Skype, no WhatsApp Web e no [projeto Audicord]
 
 ## Demonstração
 
+![](https://i.imgur.com/e6XpeBK.png)
+
 O projeto completo (backend e frontend) se encontra hospedado no Heroku e pode ser acessado para fins de testes demonstrativos através do seguinte link: [https://proj-meeting-room.herokuapp.com/](https://proj-meeting-room.herokuapp.com/).
 
 Note que o servidor pode estar em estado de suspensão devido a inatividade, o que requer cerca de 30 segundos para que um primeiro acesso seja respondido.
