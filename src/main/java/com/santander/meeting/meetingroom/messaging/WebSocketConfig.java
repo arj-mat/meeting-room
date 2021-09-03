@@ -42,9 +42,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureWebSocketTransport(WebSocketTransportRegistration registration) {
-        registration.setMessageSizeLimit( 200000 ); // default : 64 * 1024
-        registration.setSendTimeLimit( 20 * 10000 ); // default : 10 * 10000
-        registration.setSendBufferSizeLimit( 512 * 1024 ); // default : 512 * 1024
+        registration.setMessageSizeLimit( 3000000 ); // 3 megabytes
+        registration.setSendTimeLimit( 20 * 10000 ); // 20 segundos
+        registration.setSendBufferSizeLimit( 3000000 ); // 3 megabytes
 
 
         // Referência: https://newbedev.com/disconnect-client-session-from-spring-websocket-stomp-server
