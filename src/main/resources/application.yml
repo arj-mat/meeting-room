@@ -7,7 +7,6 @@ spring:
     url: ${DATABASE_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-    #Definir username e password não é necessário para execução no Heroku, porém pode ser necessário para conexão a um banco de dados local.
   jpa:
     show-sql: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
