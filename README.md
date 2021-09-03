@@ -37,7 +37,9 @@ Note que o servidor pode estar em estado de suspensão devido a inatividade, o q
 
 O backend consiste basicamente em duas implementações de servidores:
 
-Um servidor HTTP, configurado para suportar a navegação com rotas do Angular e alguns métodos de API, como criar uma sala e obter autorização para entrada nas salas; e um servidor WebSocket, para as interações em tempo real.
+Um servidor HTTP, configurado para suportar a navegação com rotas do Angular e alguns métodos de API, como criar uma sala e obter autorização para entrada nas salas;
+
+E e um servidor WebSocket, para as interações em tempo real.
 
 #### Destaques
 
