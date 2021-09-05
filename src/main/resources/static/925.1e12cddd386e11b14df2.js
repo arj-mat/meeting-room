@@ -1,0 +1,1 @@
+(self.webpackChunkapp_front_end=self.webpackChunkapp_front_end||[]).push([[925],{8925:(n,e,o)=>{"use strict";o.r(e),o.d(e,{RoomModule:()=>s});var t=o(1341),p=o(6966),r=o(5366);const c=[{path:"",component:p.Y}];let s=(()=>{class n{}return n.\u0275fac=function(e){return new(e||n)},n.\u0275mod=r.oAB({type:n}),n.\u0275inj=r.cJS({imports:[[t.Bz.forChild(c)],t.Bz]}),n})()}}]);
