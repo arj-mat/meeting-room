@@ -93,8 +93,6 @@ public class MSNConnection {
         } else {
             MSNConnectionService.connectionsByRoomId.put( roomId, new ArrayList<>( Arrays.asList( this ) ) );
         }
-
-        RoomMSNService.broadcastMemberJoined( this.memberIdentification );
     }
 
     public void disconnect() {

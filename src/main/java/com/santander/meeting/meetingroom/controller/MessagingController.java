@@ -41,11 +41,12 @@ public class MessagingController {
         MSNConnection connection = MSNConnectionService.getFromPrincipal( principal );
 
         if ( room.isPresent() && this.msnConnectionService.identifyUser( connection, room.get(), payload ) ) {
-            MSNConnectionService.template.convertAndSendToUser(
-                    principal.getName(),
+            connection.sendIfIdentified(
                     "/room-info",
                     this.roomMSNService.getRoomInfoMessageOutput( room.get(), connection )
             );
+
+            RoomMSNService.broadcastMemberJoined( connection.getMemberIdentification() );
         } else {
             connection.disconnect();
         }
